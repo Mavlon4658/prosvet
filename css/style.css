@@ -55,7 +55,7 @@ header .phone {
     align-items: center;
     gap: 12px;
     color: #FFF;
-    font-family: "Arial", sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 13px;
     font-style: normal;
     font-weight: 700;
@@ -88,7 +88,7 @@ header .link {
 #home .text {
     color: #FFF;
     text-align: center;
-    font-family: "Arial", sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
@@ -111,7 +111,7 @@ header .link {
 
 #home .title {
     color: #323232;
-    font-family: "Arial", sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
@@ -121,7 +121,7 @@ header .link {
 
 #home .title a {
     color: #EF733E;
-    font-family: "Arial", sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
@@ -142,9 +142,13 @@ header .link {
     gap: 7px;
 }
 
+#home ul li svg {
+    flex-shrink: 0;
+}
+
 #home .texts {
     color: #000;
-    font-family: "Arial", sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 15px;
     font-style: normal;
     font-weight: 400;
@@ -153,7 +157,7 @@ header .link {
 
 #home .texts a {
     color: #EF733E;
-    font-family: "Arial", sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 15px;
     font-style: normal;
     font-weight: 700;
@@ -163,7 +167,7 @@ header .link {
 
 #home .texts span {
     color: #000;
-    font-family: "Arial", sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 15px;
     font-style: normal;
     font-weight: 700;
@@ -188,7 +192,7 @@ header .link {
 /* Texts */
 #texts .main_container {
     color: #323232;
-    font-family: "Arial", sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 15px;
     font-style: normal;
     font-weight: 400;
@@ -198,7 +202,7 @@ header .link {
 
 #texts .main_container span {
     color: #323232;
-    font-family: "Arial", sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 15px;
     font-style: normal;
     font-weight: 700;
@@ -223,7 +227,7 @@ header .link {
 #katalog .text_wrapper .text {
     color: #FFF;
     text-align: center;
-    font-family: "Arial", sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 15px;
     font-style: normal;
     font-weight: 700;
@@ -236,7 +240,7 @@ header .link {
 
 #katalog .text_wrapper .text a {
     color: #EF733E;
-    font-family: "Arial", sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 15px;
     font-style: normal;
     font-weight: 700;
@@ -251,7 +255,7 @@ header .link {
     padding: 11px 63px 10px;
     color: #FFF;
     text-align: center;
-    font-family: "Arial", sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 15px;
     font-style: normal;
     font-weight: 700;
@@ -277,7 +281,7 @@ footer .telegram {
     align-items: center;
     gap: 10px;
     color: #FFF;
-    font-family: "Arial", sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 13px;
     font-style: normal;
     font-weight: 400;
@@ -297,7 +301,7 @@ footer .links a {
     align-items: center;
     gap: 10px;
     color: #FFF;
-    font-family: "Arial", sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 13px;
     font-style: normal;
     font-weight: 700;

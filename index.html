@@ -6,23 +6,93 @@
     <title>PROSVET</title>
 
     <link rel="stylesheet" href="./fonts/stylesheet.css">
-    <link rel="stylesheet" href="./css/style.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a, span {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul, li {
+            list-style-type: none;
+        }
+
+        button, input textarea {
+            outline: none;
+            background: transparent;
+            border: none;
+        }
+    </style>
 </head>
 <body>
-    <div class="wrapper">
+    <div style="
+        width: 100%;
+        overflow: hidden;
+    ">
 
         <!-- Header -->
-        <header>
-            <div class="main_container">
-                <a href="#" class="logo">
-                    <img src="./images/logo.svg" alt="">
+        <header style="
+            background: #40474C;
+            padding: 16px 0;
+            margin-bottom: 30px;
+        ">
+            <div style="
+                max-width: 600px;
+                padding: 0px 30px;
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            ">
+                <a href="#">
+                    <svg width="184" height="53" viewBox="0 0 184 53" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <rect width="184" height="53" fill="url(#pattern0)"/>
+                        <defs>
+                            <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                <use xlink:href="#image0_11_6" transform="scale(0.00543478 0.0188679)"/>
+                            </pattern>
+                            <image id="image0_11_6" width="184" height="53" xlink:href="data:image/png;base64,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"/>
+                        </defs>
+                    </svg>
                 </a>
-                <div class="links">
-                    <a href="#" class="phone">
-                        <img src="./images/phone.svg" alt="">
+                <div style="
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    gap: 7px;
+                ">
+                    <a href="#" style="
+                        display: flex;
+                        align-items: center;
+                        gap: 12px;
+                        color: #FFF;
+                        font-family: 'Arial', sans-serif;
+                        font-size: 13px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 16px;
+                    ">
+                        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.09194 10.9984C7.29859 10.9692 5.05025 10.6586 2.69556 8.30493C0.341435 5.95074 0.0312609 3.7034 0.00151065 2.90967C-0.0425638 1.70007 0.884103 0.525175 1.95456 0.0663428C2.08347 0.0106919 2.22463 -0.0104961 2.3642 0.004858C2.50376 0.0202121 2.63694 0.0715806 2.75066 0.153923C3.63215 0.796177 4.24038 1.76782 4.76266 2.53181C4.87757 2.69966 4.92671 2.90391 4.9007 3.10565C4.87469 3.30738 4.77535 3.4925 4.62162 3.62573L3.54675 4.42387C3.49482 4.46136 3.45827 4.51642 3.44388 4.57883C3.42949 4.64123 3.43825 4.70673 3.46852 4.76317C3.71203 5.20548 4.14506 5.86426 4.6409 6.35999C5.13729 6.85573 5.82706 7.31732 6.30031 7.58832C6.35965 7.62162 6.42949 7.63093 6.49548 7.61433C6.56147 7.59774 6.61859 7.5565 6.65511 7.49909L7.35479 6.43435C7.48343 6.26352 7.67319 6.14907 7.88433 6.11498C8.09548 6.08089 8.31163 6.12981 8.48751 6.25148C9.26267 6.78798 10.1673 7.38562 10.8295 8.23333C10.9186 8.34785 10.9752 8.48417 10.9935 8.62807C11.0118 8.77196 10.9912 8.91813 10.9336 9.05129C10.4725 10.127 9.30564 11.0431 8.09194 10.9984Z" fill="white"/>
+                        </svg>
                         <span>8 (812) 615-88-90</span>
                     </a>
-                    <a href="https://prosvetspb.ru/" class="link">
+                    <a href="https://prosvetspb.ru/" style="
+                        color: #FFF;
+                        text-align: center;
+                        font-family: Arial;
+                        font-size: 12px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 20px;
+                        text-decoration-line: underline;
+                    ">
                         Перейти на сайт
                     </a>
                 </div>
@@ -31,33 +101,177 @@
         <!-- Header end -->
 
         <!-- Home -->
-        <section id="home">
-            <div class="main_container">
-                <div class="text_wrapper">
-                    <div class="text text_1">Что лучше всего сможет создать новогоднее настроение в предпраздничные дни? </div>
-                    <div class="text text_2">Конечно же, красочные, завораживающе мигающие гирлянды и светодиодные фигуры.</div>
+        <section>
+            <div style="
+                max-width: 600px;
+                padding: 0px 30px;
+                margin: 0 auto;
+            ">
+                <div style="
+                    background-image: url('https://prosvet.onrender.com/images/home_bg_1.png');
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    padding: 21px 0 39px;
+                    margin-bottom: 30px;
+                ">
+                    <div style="
+                        color: #FFF;
+                        text-align: center;
+                        font-family: 'Arial', sans-serif;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: normal;
+                        margin-bottom: 209px;
+                        border-radius: 20px;
+                        background: rgba(0, 0, 0, 0.25);
+                        backdrop-filter: blur(2px);
+                        padding: 22px 10px 22px 11px;
+                        margin-left: 27px;
+                        margin-right: 38px;
+                    ">Что лучше всего сможет создать новогоднее настроение в предпраздничные дни? </div>
+                    <div style="
+                        color: #FFF;
+                        text-align: center;
+                        font-family: 'Arial', sans-serif;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: normal;
+                        margin: 0 46px;
+                    ">Конечно же, красочные, завораживающе мигающие гирлянды и светодиодные фигуры.</div>
                 </div>
-                <div class="title">
+                <div style="
+                    color: #323232;
+                    font-family: 'Arial', sans-serif;
+                    font-size: 22px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    margin-bottom: 24px;
+                ">
                     Вот несколько советов от профессиональных дизайнеров освещения магазина
-                    <a href="https://prosvetspb.ru/">www.prosvetspb.ru:</a>
+                    <a href="https://prosvetspb.ru/" style="
+                        color: #EF733E;
+                        font-family: 'Arial', sans-serif;
+                        font-size: 22px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                        text-decoration-line: underline;
+                    ">www.prosvetspb.ru:</a>
                 </div>
-                <ul>
-                    <li>
-                        <img src="./images/list_icon.svg" alt="">
-                        <div class="texts">
-                            <a href="https://prosvetspb.ru/led-lenta/">Светодиодные ленты</a> по контуру крыши и линий фасада <span>превратят ваш дом в пряничный домик из сказки</span>
+                <ul style="
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    margin-bottom: 30px;
+                ">
+                    <li style="
+                        display: flex;
+                        align-items: flex-start;
+                        gap: 7px;
+                    ">
+                        <svg style="flex-shrink: 0;" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.5 0L32.6554 8.75V26.25L17.5 35L2.34456 26.25V8.75L17.5 0Z" fill="#EF733E"/>
+                            <path d="M15.8707 25C15.219 25 14.6174 24.7264 14.2164 24.2704L8 17.202L11.3588 14.785L15.8707 19.9381L23.6412 11L27 13.4169L17.5752 24.2704C17.124 24.7264 16.5224 25 15.8707 25Z" fill="white"/>
+                        </svg>
+                        <div style="
+                            color: #000;
+                            font-family: 'Arial', sans-serif;
+                            font-size: 15px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 22px;
+                        ">
+                            <a href="https://prosvetspb.ru/led-lenta/" style="
+                                color: #EF733E;
+                                font-family: 'Arial', sans-serif;
+                                font-size: 15px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: 22px;
+                                text-decoration-line: underline;
+                            ">Светодиодные ленты</a> по контуру крыши и линий фасада <span style="
+                                color: #000;
+                                font-family: 'Arial', sans-serif;
+                                font-size: 15px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: 22px;
+                            ">превратят ваш дом в пряничный домик из сказки</span>
                         </div>
                     </li>
-                    <li>
-                        <img src="./images/list_icon.svg" alt="">
-                        <div class="texts">
-                            Cветящиеся в темноте <a href="https://prosvetspb.ru/novogodnyaya-led-produkciya/svetodiodnye-derevya/">искусственные деревья</a> и <a href="https://prosvetspb.ru/novogodnyaya-led-produkciya/girlyandy/">разноцветные гирлянды</a> завершат образ настоящего зимнего волшебства
+                    <li style="
+                        display: flex;
+                        align-items: flex-start;
+                        gap: 7px;
+                    ">
+                        <svg style="flex-shrink: 0;" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.5 0L32.6554 8.75V26.25L17.5 35L2.34456 26.25V8.75L17.5 0Z" fill="#EF733E"/>
+                            <path d="M15.8707 25C15.219 25 14.6174 24.7264 14.2164 24.2704L8 17.202L11.3588 14.785L15.8707 19.9381L23.6412 11L27 13.4169L17.5752 24.2704C17.124 24.7264 16.5224 25 15.8707 25Z" fill="white"/>
+                        </svg>
+                        <div style="
+                            color: #000;
+                            font-family: 'Arial', sans-serif;
+                            font-size: 15px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 22px;
+                        ">
+                            Cветящиеся в темноте <a href="https://prosvetspb.ru/novogodnyaya-led-produkciya/svetodiodnye-derevya/" style="
+                                color: #EF733E;
+                                font-family: 'Arial', sans-serif;
+                                font-size: 15px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: 22px;
+                                text-decoration-line: underline;
+                            ">искусственные деревья</a> и <a href="https://prosvetspb.ru/novogodnyaya-led-produkciya/girlyandy/" style="
+                            color: #EF733E;
+                            font-family: 'Arial', sans-serif;
+                            font-size: 15px;
+                            font-style: normal;
+                            font-weight: 700;
+                            line-height: 22px;
+                            text-decoration-line: underline;
+                            ">разноцветные гирлянды</a> завершат образ настоящего зимнего волшебства
                         </div>
                     </li>
-                    <li>
-                        <img src="./images/list_icon.svg" alt="">
-                        <div class="texts">
-                            Правильно расставленные с помощью <a href="https://prosvetspb.ru/novogodnyaya-led-produkciya/novogodnie-figury/">фигур</a> светящихся животных акценты преобразят интерьер вашей квартиры и вместе с рождественская елью в мерцающих огнях <span>вернут вас в детское ощущение ожидания чуда!</span>
+                    <li style="
+                        display: flex;
+                        align-items: flex-start;
+                        gap: 7px;
+                    ">
+                        <svg style="flex-shrink: 0;" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.5 0L32.6554 8.75V26.25L17.5 35L2.34456 26.25V8.75L17.5 0Z" fill="#EF733E"/>
+                            <path d="M15.8707 25C15.219 25 14.6174 24.7264 14.2164 24.2704L8 17.202L11.3588 14.785L15.8707 19.9381L23.6412 11L27 13.4169L17.5752 24.2704C17.124 24.7264 16.5224 25 15.8707 25Z" fill="white"/>
+                        </svg>                            
+                        <div style="
+                            color: #000;
+                            font-family: 'Arial', sans-serif;
+                            font-size: 15px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 22px;
+                        ">
+                            Правильно расставленные с помощью <a href="https://prosvetspb.ru/novogodnyaya-led-produkciya/novogodnie-figury/" style="
+                                color: #EF733E;
+                                font-family: 'Arial', sans-serif;
+                                font-size: 15px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: 22px;
+                                text-decoration-line: underline;
+                            ">фигур</a> светящихся животных акценты преобразят интерьер вашей квартиры и вместе с рождественская елью в мерцающих огнях <span style="
+                            color: #000;
+                            font-family: 'Arial', sans-serif;
+                            font-size: 15px;
+                            font-style: normal;
+                            font-weight: 700;
+                            line-height: 22px;
+                            ">вернут вас в детское ощущение ожидания чуда!</span>
                         </div>
                     </li>
                 </ul>
@@ -66,62 +280,210 @@
         <!-- Home end -->
 
         <!-- Images -->
-        <section class="images">
-            <div class="main_container">
-                <img src="./images/cards_1.png" alt="">
-                <img src="./images/cards_2.png" alt="">
+        <section>
+            <div style="
+                max-width: 600px;
+                padding: 0px 30px;
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 20px;
+                margin-bottom: 30px;
+            ">
+                <img src="https://prosvet.onrender.com/images/cards_1.png" alt="" style="width: calc(50% - 10px);">
+                <img src="https://prosvet.onrender.com/images/cards_2.png" alt="" style="width: calc(50% - 10px);">
             </div>
         </section>
         <!-- Images end -->
 
-        <section id="texts">
-            <div class="main_container">
-                <span>Новогоднее украшение фойе или павильона</span> – это не только дополнительный способ привлечения внимания потенциальных клиентов или покупателей. 
+        <section>
+            <div style="
+                max-width: 600px;
+                padding: 0px 30px;
+                margin: 0 auto;
+                color: #323232;
+                font-family: 'Arial', sans-serif;
+                font-size: 15px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                margin-bottom: 30px;
+            ">
+                <span style="
+                    color: #323232;
+                    font-family: 'Arial', sans-serif;
+                    font-size: 15px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                ">Новогоднее украшение фойе или павильона</span> – это не только дополнительный способ привлечения внимания потенциальных клиентов или покупателей. 
                 <br><br>
                 Это – возможность подарить каждому пришедшему хорошее настроение и желание порадовать себя и близких теплыми душевными сувенирами.
             </div>
         </section>
 
         <!-- Images -->
-        <section class="images">
-            <div class="main_container">
-                <img src="./images/cards_3.png" alt="">
-                <img src="./images/cards_4.png" alt="">
+        <section>
+            <div  style="
+                max-width: 600px;
+                padding: 0px 30px;
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 20px;
+                margin-bottom: 30px;
+            ">
+                <img src="https://prosvet.onrender.com/images/cards_3.png" alt="" style="width: calc(50% - 10px);">
+                <img src="https://prosvet.onrender.com/images/cards_4.png" alt="" style="width: calc(50% - 10px);">
             </div>
         </section>
         <!-- Images end -->
 
         <!-- Katalog -->
-        <section id="katalog">
-            <div class="main_container">
-                <div class="text_wrapper">
-                    <div class="text">
+        <section>
+            <div style="
+                max-width: 600px;
+                padding: 0px 30px;
+                margin: 0 auto;
+            ">
+                <div style="
+                    background-image: url('https://prosvet.onrender.com/images/katalog_bg.png');
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    padding: 32px 31px 30px 34px;
+                    margin-bottom: 30px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 20px;
+                ">
+                    <div style="
+                        color: #FFF;
+                        text-align: center;
+                        font-family: 'Arial', sans-serif;
+                        font-size: 15px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: normal;
+                        border-radius: 20px;
+                        background: rgba(0, 0, 0, 0.25);
+                        backdrop-filter: blur(2px);
+                        padding: 27px 0px 26px;
+                    ">
                         Рождественские гирлянды, светодиодные ленты и фигуры, искусственные новогодние деревья и прочие атрибуты наступающих зимних праздников вы можете выбрать 
-                        в каталоге магазина <a href="https://prosvetspb.ru/">www.prosvetspb.ru.</a>
+                        в каталоге магазина <a href="https://prosvetspb.ru/" style="
+                            color: #EF733E;
+                            font-family: 'Arial', sans-serif;
+                            font-size: 15px;
+                            font-style: normal;
+                            font-weight: 700;
+                            line-height: normal;
+                            text-decoration-line: underline;
+                        ">www.prosvetspb.ru.</a>
                     </div>
-                    <a href="https://prosvetspb.ru/" class="link">Перейти в каталог</a>
+                    <a href="https://prosvetspb.ru/" style="
+                        border-radius: 5px;
+                        background: #EF733E;
+                        display: block;
+                        padding: 11px 63px 10px;
+                        color: #FFF;
+                        text-align: center;
+                        font-family: 'Arial', sans-serif;
+                        font-size: 15px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 20px;
+                        text-decoration-line: underline;
+                    ">Перейти в каталог</a>
                 </div>
             </div>
         </section>
         <!-- Katalog end -->
 
         <!-- Footer -->
-        <footer>
-            <div class="main_container">
-                <a href="#" class="logo">
-                    <img src="./images/footer_logo.svg" alt="">
+        <footer style="
+            padding: 22px 0;
+            background: #40474C;
+        ">
+            <div style="
+                max-width: 600px;
+                padding: 0px 30px;
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            ">
+                <a href="#">
+                    <svg width="104" height="31" viewBox="0 0 104 31" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <rect width="104" height="31" fill="url(#pattern0)"/>
+                        <defs>
+                            <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <use xlink:href="#image0_11_41" transform="matrix(0.00562409 0 0 0.0188679 -0.0174165 0)"/>
+                            </pattern>
+                            <image id="image0_11_41" width="184" height="53" xlink:href="data:image/png;base64,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"/>
+                        </defs>
+                    </svg>
                 </a>
-                <a href="https://telegram.me/ISY_PROsvetBOT" class="telegram">
+                <a href="https://telegram.me/ISY_PROsvetBOT" style="
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    color: #FFF;
+                    font-family: 'Arial', sans-serif;
+                    font-size: 13px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 16px;
+                    text-decoration-line: underline;
+                ">
                     <span>Мы в Telegram</span>
-                    <img src="./images/telegram.svg" alt="">
+                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12.5" cy="12.5" r="12.5" fill="#EF733E"/>
+                        <path d="M19.7914 6.14653C19.7084 6.07486 19.6074 6.02719 19.4993 6.00866C19.3912 5.99014 19.2801 6.00145 19.178 6.04139L5.60712 11.3523C5.41479 11.4271 5.25196 11.5623 5.14315 11.7377C5.03433 11.913 4.98542 12.1189 5.00378 12.3245C5.02213 12.53 5.10676 12.724 5.24492 12.8773C5.38309 13.0306 5.56731 13.1349 5.76984 13.1744L9.28611 13.8648V17.7855C9.28542 17.9991 9.34889 18.2079 9.46828 18.385C9.58768 18.562 9.75751 18.6992 9.95575 18.7786C10.1537 18.8594 10.3714 18.8788 10.5805 18.8343C10.7896 18.7897 10.9805 18.6833 11.1283 18.5288L12.8238 16.7703L15.5138 19.1248C15.7078 19.2969 15.9581 19.3922 16.2175 19.3926C16.3312 19.3925 16.4442 19.3747 16.5524 19.3397C16.7291 19.2837 16.8881 19.1822 17.0134 19.0456C17.1388 18.909 17.2262 18.7419 17.2669 18.5609L19.9849 6.73648C20.0092 6.62984 20.0041 6.51859 19.97 6.41466C19.9359 6.31074 19.8742 6.21805 19.7914 6.14653ZM15.6972 8.55722L9.69794 12.8536L6.37654 12.2021L15.6972 8.55722ZM10.3575 17.7855V14.6061L12.0176 16.0619L10.3575 17.7855ZM16.2189 18.3212L10.6823 13.4663L18.651 7.755L16.2189 18.3212Z" fill="white"/>
+                    </svg>
                 </a>
-                <div class="links">
-                    <a href="#" class="phone">
-                        <img src="./images/phone.svg" alt="">
+                <div style="
+                    display: flex;
+                    flex-direction: column;
+                    gap: 9px;
+                    align-items: flex-end;
+                ">
+                    <a href="#" style="
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        color: #FFF;
+                        font-family: 'Arial', sans-serif;
+                        font-size: 13px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 16px;
+                    ">
+                        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.09194 10.9984C7.29859 10.9692 5.05025 10.6586 2.69556 8.30493C0.341435 5.95074 0.0312609 3.7034 0.00151065 2.90967C-0.0425638 1.70007 0.884103 0.525175 1.95456 0.0663428C2.08347 0.0106919 2.22463 -0.0104961 2.3642 0.004858C2.50376 0.0202121 2.63694 0.0715806 2.75066 0.153923C3.63215 0.796177 4.24038 1.76782 4.76266 2.53181C4.87757 2.69966 4.92671 2.90391 4.9007 3.10565C4.87469 3.30738 4.77535 3.4925 4.62162 3.62573L3.54675 4.42387C3.49482 4.46136 3.45827 4.51642 3.44388 4.57883C3.42949 4.64123 3.43825 4.70673 3.46852 4.76317C3.71203 5.20548 4.14506 5.86426 4.6409 6.35999C5.13729 6.85573 5.82706 7.31732 6.30031 7.58832C6.35965 7.62162 6.42949 7.63093 6.49548 7.61433C6.56147 7.59774 6.61859 7.5565 6.65511 7.49909L7.35479 6.43435C7.48343 6.26352 7.67319 6.14907 7.88433 6.11498C8.09548 6.08089 8.31163 6.12981 8.48751 6.25148C9.26267 6.78798 10.1673 7.38562 10.8295 8.23333C10.9186 8.34785 10.9752 8.48417 10.9935 8.62807C11.0118 8.77196 10.9912 8.91813 10.9336 9.05129C10.4725 10.127 9.30564 11.0431 8.09194 10.9984Z" fill="white"/>
+                        </svg>
                         <span>8 (812) 615-88-90</span>
                     </a>
-                    <a href="#" class="link">
-                        <img src="./images/email.svg" alt="">
+                    <a href="#" style="
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        color: #FFF;
+                        font-family: 'Arial', sans-serif;
+                        font-size: 13px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 16px;
+                    ">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.25 3.0625L7 7.875L1.75 3.0625" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M1.75 3.0625H12.25V10.5C12.25 10.616 12.2039 10.7273 12.1219 10.8094C12.0398 10.8914 11.9285 10.9375 11.8125 10.9375H2.1875C2.07147 10.9375 1.96019 10.8914 1.87814 10.8094C1.79609 10.7273 1.75 10.616 1.75 10.5V3.0625Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6.04102 7L1.88477 10.8117" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12.1152 10.8117L7.95898 7" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                         info@prosvetspb.ru
                     </a>
                 </div>
